@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h3 class="box2">HOME</h3>
+            </div>
+            <div>
+                <h3 class="box2">GUEST</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box1" id="index1">12</div>
+            <div class="box1" id="index2">5</div>
+        </div>
+        <div class="container">
+            <div class="box4">
+                <button class="box3"  onclick="increment('HOME', 1), whoLeads()">+1</button>
+                <button class="box3"  onclick="increment('HOME', 2), whoLeads()">+2</button>
+                <button class="box3"  onclick="increment('HOME', 3), whoLeads()">+3</button>
+            </div>
+            <div class="box4">
+                <button class="box3" onclick="increment('GUEST', 1), whoLeads()">+1</button>
+                <button class="box3" onclick="increment('GUEST', 2), whoLeads()">+2</button>
+                <button class="box3" onclick="increment('GUEST', 3), whoLeads()">+3</button>
+            </div>
+        </div>
+        <div class="container">
+            <button style="background-color : #1B244A; color: #EEEEEE;" onclick="reset()"">New game</button>
+        </div>   
+        <p class="container" id="leads"></p>
+        <script src="index.js"></script>
+    </body>
+</html>
