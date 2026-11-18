@@ -1,36 +1,52 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="container">
-            <div>
-                <h3 class="box2">HOME</h3>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172344">
+    <meta name="description" content="A simple basketball scoreboard. Track home and away points, undo a mistake, and start a new game.">
+    <title>Courtside · Basketball Scoreboard</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <header class="masthead">
+            <a class="brand" href="./" aria-label="Courtside home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><path d="M3 16h26M16 3v26M7 6c12 5 12 15 0 20M25 6c-12 5-12 15 0 20"/></svg>COURTSIDE</a>
+            <span class="edition">THE SIMPLE SCOREKEEPER</span>
+        </header>
+
+        <section class="scoreboard" aria-labelledby="board-title">
+            <div class="board-heading"><div><p class="eyebrow">EVERY POINT COUNTS</p><h1 id="board-title">Game on.</h1></div><span class="sport-label">BASKETBALL</span></div>
+            <div class="teams">
+                <section class="team" aria-labelledby="home-title">
+                    <div class="team-heading"><span class="team-marker home-marker" aria-hidden="true"></span><h2 id="home-title">HOME</h2><span class="leader" id="home-leader" hidden>LEADING</span></div>
+                    <div class="score" id="index1" aria-label="Home score">0</div>
+                    <p class="points-label">POINTS</p>
+                    <div class="scoring-controls" role="group" aria-label="Add points to Home">
+                        <button type="button" data-team="HOME" data-points="1" aria-label="Add 1 point to Home">+1</button>
+                        <button type="button" data-team="HOME" data-points="2" aria-label="Add 2 points to Home">+2</button>
+                        <button type="button" data-team="HOME" data-points="3" aria-label="Add 3 points to Home">+3</button>
+                    </div>
+                </section>
+                <div class="versus" aria-hidden="true">VS</div>
+                <section class="team" aria-labelledby="away-title">
+                    <div class="team-heading"><span class="team-marker away-marker" aria-hidden="true"></span><h2 id="away-title">AWAY</h2><span class="leader" id="away-leader" hidden>LEADING</span></div>
+                    <div class="score away-score" id="index2" aria-label="Away score">0</div>
+                    <p class="points-label">POINTS</p>
+                    <div class="scoring-controls" role="group" aria-label="Add points to Away">
+                        <button type="button" data-team="AWAY" data-points="1" aria-label="Add 1 point to Away">+1</button>
+                        <button type="button" data-team="AWAY" data-points="2" aria-label="Add 2 points to Away">+2</button>
+                        <button type="button" data-team="AWAY" data-points="3" aria-label="Add 3 points to Away">+3</button>
+                    </div>
+                </section>
             </div>
-            <div>
-                <h3 class="box2">AWAY</h3>
-            </div>
-        </div>
-        <div class="container">
-            <div class="box1" id="index1">12</div>
-            <div class="box1" id="index2">5</div>
-        </div>
-        <div class="container">
-            <div class="box4">
-                <button class="box3"  onclick="increment('HOME', 1), whoLeads()">+1</button>
-                <button class="box3"  onclick="increment('HOME', 2), whoLeads()">+2</button>
-                <button class="box3"  onclick="increment('HOME', 3), whoLeads()">+3</button>
-            </div>
-            <div class="box4">
-                <button class="box3" onclick="increment('GUEST', 1), whoLeads()">+1</button>
-                <button class="box3" onclick="increment('GUEST', 2), whoLeads()">+2</button>
-                <button class="box3" onclick="increment('GUEST', 3), whoLeads()">+3</button>
-            </div>
-        </div>
-        <div class="container">
-            <button style="background-color : #1B244A; color: #EEEEEE;" onclick="reset()"">New game</button>
-        </div>   
-        <p class="container" id="leads"></p>
-        <script src="index.js"></script>
-    </body>
+            <div class="game-status"><span class="status-dot" aria-hidden="true"></span><p id="leads" role="status" aria-live="polite" aria-atomic="true">All square. Let’s play.</p></div>
+            <div class="toolbar"><button type="button" class="undo" id="undo" disabled><span aria-hidden="true">↶</span> Undo last point</button><button type="button" class="new-game" id="new-game">New game <span aria-hidden="true">↗</span></button></div>
+            <div class="reset-confirmation" id="reset-confirmation" hidden><p>Clear both scores and start a new game?</p><div><button type="button" id="cancel-reset">Keep playing</button><button type="button" class="confirm-reset" id="confirm-reset">Reset scores</button></div></div>
+        </section>
+        <footer><span>Made for the love of the game.</span><span>Tap a point button to keep score.</span></footer>
+        <noscript><p class="noscript">Enable JavaScript to use the scoreboard.</p></noscript>
+    </main>
+</body>
 </html>

@@ -1,52 +1,42 @@
-body {
-    margin: 0;
-    background-color : #1B244A;
-}
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-.box1{
-    display: grid;
-    place-items: center;
-    height: 120px;
-    width: 155px;
-    background-color: #080001;
-    color: #F94F6D;
-    /* font-size: 90px;
-    font-family: Cursed Timer ULiL; */
-    font-family: 'Cursed Timer ULiL', sans-serif;
-  font-weight: 400;
-  font-size: 90px;
-  line-height: 126.7px;
-  text-align: center;
-}
-.box2{
-    height: 36px;
-    width: 149px;
-    text-align: center;
-    font-style: Verdana;
-    color: #EEEEEE;
-}
-
-.box3{
-    /* display: flex;
-    justify-content: center;
-    text-align: center;     */
-    display: grid;
-    place-items: center;
-    border-top: 2px solid #9AABD8;
-    height: 45px;
-    width: 45px;
-    border-radius: 5px;
-    color: #9AABD8;
-    background-color : #1B244A;
-}
-.box4{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    
-}
+:root{color-scheme:dark;--page:#101a32;--panel:#172344;--line:#33405d;--muted:#a9b4ce;--text:#f3f1e9;--orange:#f4a261;--mint:#a5d9cb}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 10%,#233454 0,transparent 65%),var(--page);color:var(--text);font-family:Verdana,Geneva,sans-serif}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:5px}
+.app{max-width:1000px;margin:auto;padding:42px 36px}
+.masthead{display:flex;align-items:center;justify-content:space-between;margin-bottom:64px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);text-decoration:none;font-size:17px;font-weight:bold;letter-spacing:3px}
+.brand svg{width:34px;height:34px;fill:none;stroke:var(--orange);stroke-width:1.5}
+.edition{font-size:10px;letter-spacing:2px;color:var(--muted)}
+.scoreboard{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px 46px 0;box-shadow:0 25px 70px #080e2038;overflow:hidden}
+.board-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.eyebrow{font-size:10px;letter-spacing:2.5px;color:var(--orange);margin:0 0 10px}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:44px;letter-spacing:-1.5px;margin:0}
+.sport-label{border:1px solid var(--line);border-radius:30px;padding:9px 12px;font-size:9px;letter-spacing:1.5px;color:var(--muted)}
+.teams{display:grid;grid-template-columns:minmax(0,1fr) 68px minmax(0,1fr);align-items:center;margin:42px 0 32px}
+.team{text-align:center;min-width:0}
+.team-heading{display:flex;align-items:center;justify-content:center;gap:9px;position:relative;height:48px;padding-bottom:16px}
+h2{font-size:16px;letter-spacing:3px;margin:0}
+.team-marker{width:7px;height:7px;border-radius:50%}
+.home-marker{background:var(--orange)}.away-marker{background:var(--mint)}
+.leader{position:absolute;bottom:0;font-size:8px;letter-spacing:1.6px;color:var(--muted)}
+.score{font-family:'Courier New',monospace;font-size:clamp(64px,12vw,140px);font-weight:bold;letter-spacing:-8px;font-variant-numeric:tabular-nums;line-height:1.25;color:var(--orange);background:#101a30;border:1px solid #2a3754;border-radius:12px;margin-top:12px;padding:12px 8px 12px 0;overflow-wrap:anywhere}
+.away-score{color:var(--mint)}
+.points-label{font-size:9px;letter-spacing:3px;color:var(--muted);margin:16px 0 23px}
+.versus{color:#8c99b5;font-size:12px;letter-spacing:2px;text-align:center;padding-bottom:60px}
+.scoring-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.scoring-controls button{min-height:52px;border:1px solid #53617f;border-radius:7px;background:#233151;color:var(--text);font-size:22px;transition:background .15s,transform .15s}
+.scoring-controls button:hover{background:#354767;border-color:#a9b4ce}.scoring-controls button:active{transform:translateY(2px);background:#405476}
+.game-status{border-top:1px solid var(--line);padding:23px 0;display:flex;align-items:center;justify-content:center;gap:10px}
+.game-status p{margin:0;font-size:13px;line-height:1.6}.status-dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex-shrink:0}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin:0 -46px;padding:20px 46px;background:#131f3b}
+.toolbar button{border:0;font-size:12px;min-height:42px;border-radius:6px}
+.undo{background:transparent;color:var(--muted);padding:8px 0}.undo span{font-size:22px;vertical-align:middle;margin-right:5px}.undo:hover:enabled{color:var(--text)}.undo:disabled{opacity:.4;cursor:not-allowed}
+.new-game{background:var(--text);color:var(--page);padding:10px 18px;font-weight:bold}.new-game span{margin-left:14px}.new-game:hover{background:var(--orange)}
+.reset-confirmation{border-top:1px solid var(--line);padding:20px 0;font-size:13px;line-height:1.6}.reset-confirmation p{margin-top:0}.reset-confirmation div{display:flex;gap:10px;flex-wrap:wrap}.reset-confirmation button{border:1px solid #53617f;background:transparent;color:var(--text);border-radius:5px;padding:10px 15px;min-height:42px}.reset-confirmation .confirm-reset{background:var(--orange);color:var(--page);border-color:var(--orange)}
+footer{display:flex;justify-content:space-between;gap:16px;font-size:10px;line-height:1.7;color:var(--muted);margin-top:24px}.noscript{color:var(--orange)}
+[hidden]{display:none!important}
+@media(min-width:1400px){.app{padding-top:60px}.masthead{margin-bottom:80px}}
+@media(max-width:600px){.app{padding:24px 16px}.masthead{margin-bottom:36px}.brand{font-size:13px;letter-spacing:2px}.edition{display:none}.scoreboard{padding:25px 18px 0;border-radius:14px}h1{font-size:36px}.sport-label{font-size:8px;padding:8px}.eyebrow{font-size:8px;letter-spacing:1.8px}.teams{grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr);margin:26px 0}.score{letter-spacing:-5px;font-size:clamp(48px,15vw,90px);padding:15px 5px 15px 0}.scoring-controls{gap:6px}.scoring-controls button{font-size:18px;min-height:48px}.team-heading{gap:6px}h2{font-size:13px;letter-spacing:2px}.versus{font-size:9px;letter-spacing:0}.toolbar{margin:0 -18px;padding:16px 18px}.toolbar button{font-size:11px}.new-game{padding:10px 12px}.new-game span{margin-left:5px}footer{flex-direction:column;gap:3px}.game-status p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
